@@ -1,2 +1,2 @@
 # CanonicalSg2Im
-Code for "Learning Canonical Representations for Scene Graph to Image Generation", Herzig &amp; Bar et al.
+Code and models will be released soon.
