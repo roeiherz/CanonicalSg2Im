@@ -61,9 +61,9 @@ To get started with the framework, install the following dependencies:
 
 ## Notes
 
-**Please note that the main part of the code has been released, though we are still testing it to fix possible glitches. Thank you.**
+- **Please note that the main part of the code has been released, though we are still testing it to fix possible glitches. Thank you.**
 
-This implementation is built on top of https://github.com/google/sg2im.
+- This implementation is built on top of https://github.com/google/sg2im.
 
 
 
