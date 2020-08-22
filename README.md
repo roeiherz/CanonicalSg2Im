@@ -34,10 +34,10 @@ This implementation is built on top of https://github.com/google/sg2im.
 
 ```
 @inproceedings{goldman2019dense,
- author    = {Eran Goldman and Roei Herzig and Aviv Eisenschtat and Jacob Goldberger and Tal Hassner},
- title     = {Precise Detection in Densely Packed Scenes},
- booktitle = {Proc. Conf. Comput. Vision Pattern Recognition (CVPR)},
- year      = {2019}
+ author    = {Herzig, Roei and Bar, Amir and Xu, Huijuan and Chechik, Gal and Darrell, Trevor and Globerson, Amir},
+ title     = {Learning Canonical Representations for Scene Graph to Image Generation},
+ booktitle = {Proc. of the European Conf. on Computer Vision (ECCV)},
+ year      = {2020}
 }
 ```
 
