@@ -4,8 +4,8 @@
 
 Main project [page](https://roeiherz.github.io/CanonicalSg2Im/)
 
-<!---[alt text](figures/teaser.png)--->
-<img src="figures/teaser.png" width="1000">
+<!---[alt text](Figures/teaser.png)--->
+<img src="Figures/teaser.png" width="1000">
 
 A typical image in our SKU-110K, showing densely packed objects. (a) Detection results for the state-of-the-art RetinaNet[2], showing incorrect and overlapping detections, especially for the dark objects at the bottom which are harder to separate. (b) Our results showing far fewer misdetections and better fitting bounding boxes. (c) Zoomed-in views for RetinaNet[2] and (d) our method.
 
