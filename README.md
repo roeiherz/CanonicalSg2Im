@@ -4,7 +4,6 @@
 
 Main project [page](https://roeiherz.github.io/CanonicalSg2Im/).
 
-**Code and models will be released soon.**
 
 <!---[alt text](Figures/teaser.png)--->
 <img src="Figures/teaser.png" width="1000">
@@ -51,6 +50,9 @@ To get started with the framework, install the following dependencies:
 
 
 ## Usage
+
+**Code and models will be released soon.**
+
 <!---
 1. Run `"python Run.py download"` to download and extract train, validation and test data. The data already contains the result of applying the baseline detecor over the VisualGenome data. 
 2. Run `"python Run.py eval gpi_linguistic_pretrained <gpu-number>"` to evaluate the pre-trained model of our best variant, linguistic with multi-head attention. (recall@100 SG Classification).
