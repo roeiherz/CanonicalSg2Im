@@ -19,17 +19,35 @@ Middle: Generation using [1]. Right: Generation using our proposed method.
 3. We use our canonical representations within an SG-to-image model and demonstrate our approach results in an **improved generation** on Visual Genome, COCO, and CLEVR, compared to the state-of-the-art baselines.
 
 
+## Setup
+To install the environment, following the instructions:
+- `install` [conda3](https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh)
+- `conda create --name ag2vid`
+- `conda activate ag2vid`
+- `conda install ipython`
+- `pip install ninja yacs cython matplotlib tqdm opencv-python`
+- `conda install pytorch torchvision cudatoolkit=10.0 -c pytorch`
+- `pip install pillow tensorboardX pandas joblib`
+- `pip install h5py imageio lmdb`
+- `pip install scipy==1.3.3`
+
 
 ## Dependencies
 To get started with the framework, install the following dependencies:
-- [Python 2.7](https://www.python.org/)
-- [tensorflow-gpu 1.0.1](https://www.tensorflow.org/)
-- [matplotlib 2.0.2](http://matplotlib.org/)
-- [h5py 2.7.0](http://www.h5py.org/)
-- [numpy 1.12.1](http://www.numpy.org/)
-- [pyyaml 3.12](https://pypi.python.org/pypi/PyYAML)
+- [Python 3.7](https://www.python.org/)
+- [Pytorch 1.1.0](https://www.https://pytorch.org/)
+- [matplotlib 3.1.3](http://matplotlib.org/)
+- [h5py 2.9.0](http://www.h5py.org/)
+- [numpy 1.18.1](http://www.numpy.org/)
+- [scipy 1.3.3]()
+- [pandas 1.0.3]()
+- [imageio 2.8.0]()
+- [tensorboardX 1.8]()
+- [opencv-python 4.2.9]()
+- [joblib 0.14.1]()
+- [lmdb 0.98]()
 
-Run `"pip install -r requirements.txt"`  - to install all the requirements.
+<!--Run `"pip install -r requirements.txt"`  - to install all the requirements.-->
 
 
 ## Usage
