@@ -33,7 +33,7 @@ This implementation is built on top of https://github.com/google/sg2im.
 ## Citation
 
 ```
-@inproceedings{goldman2019dense,
+@inproceedings{herzig2019canonical,
  author    = {Herzig, Roei and Bar, Amir and Xu, Huijuan and Chechik, Gal and Darrell, Trevor and Globerson, Amir},
  title     = {Learning Canonical Representations for Scene Graph to Image Generation},
  booktitle = {Proc. of the European Conf. on Computer Vision (ECCV)},
