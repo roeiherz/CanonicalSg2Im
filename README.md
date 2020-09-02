@@ -18,17 +18,17 @@ Middle: Generation using [1]. Right: Generation using our proposed method.
 3. We use our canonical representations within an SG-to-image model and demonstrate our approach results in an **improved generation** on Visual Genome, COCO, and CLEVR, compared to the state-of-the-art baselines.
 
 
-## Setup
+<!--## Setup
 To install the environment, following the instructions:
 - `install` [conda3](https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh)
-- `conda create --name ag2vid`
-- `conda activate ag2vid`
+- `conda create --name canonical`
+- `conda activate canonincal`
 - `conda install ipython`
 - `pip install ninja yacs cython matplotlib tqdm opencv-python`
 - `conda install pytorch torchvision cudatoolkit=10.0 -c pytorch`
 - `pip install pillow tensorboardX pandas joblib`
 - `pip install h5py imageio lmdb`
-- `pip install scipy==1.3.3`
+- `pip install scipy==1.3.3` -->
 
 
 ## Dependencies
