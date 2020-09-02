@@ -1,4 +1,4 @@
-# Canonical-Sg2Im
+# Learning Canonical Representations for Scene Graph to Image Generation (ECCV 2020)
 
 #### [Roei Herzig*](https://roeiherz.github.io/), [Amir Bar*](http://www.amirbar.net/), [Huijuan Xu](https://cs-people.bu.edu/hxu/), [Gal Chechik](https://chechiklab.biu.ac.il/), [Trevor Darrell](https://people.eecs.berkeley.edu/~trevor/), [Amir Globerson](https://www.cs.tau.ac.il/~gamir/)
 
@@ -34,6 +34,10 @@ To install the environment, following the instructions:
 ## Dependencies
 To get started with the framework, install the following dependencies:
 - [Python 3.7](https://www.python.org/)
+- `pip install -r requirments.txt`
+
+<!--To get started with the framework, install the following dependencies:
+- [Python 3.7](https://www.python.org/)
 - [Pytorch 1.1.0](https://www.https://pytorch.org/)
 - [matplotlib 3.1.3](http://matplotlib.org/)
 - [h5py 2.9.0](http://www.h5py.org/)
@@ -44,28 +48,52 @@ To get started with the framework, install the following dependencies:
 - [tensorboardX 1.8]()
 - [opencv-python 4.2.9]()
 - [joblib 0.14.1]()
-- [lmdb 0.98]()
+- [lmdb 0.98]() -->
 
 <!--Run `"pip install -r requirements.txt"`  - to install all the requirements.-->
 
 
-## Usage
+## Data
 
-**Code and models will be released soon.**
+Follow the commands below to build the data.
 
-<!---
-1. Run `"python Run.py download"` to download and extract train, validation and test data. The data already contains the result of applying the baseline detecor over the VisualGenome data. 
-2. Run `"python Run.py eval gpi_linguistic_pretrained <gpu-number>"` to evaluate the pre-trained model of our best variant, linguistic with multi-head attention. (recall@100 SG Classification).
-3. Run `"python Run.py train gpi_linguistic <gpu-number>"` to train a new model (linguistic with multi-head attention).
-4. Run `"python Run.py eval gpi_linguistic_best <gpu-number>"` to evaluate the new model. (recall@100 SG Classification).
---->
+### COCO
+`./scripts/download_coco.sh`
+
+### VG
+`./scripts/download_vg.sh`
+
+### CLEVR
+@TBD to complete here
+
+## Training
+### Training a SG to Layout model:
+```
+python -m scripts.train --dataset {packed_coco, packed_vg, .. @roei add here clevr name}  
+```
+
+### Training AttSpade - Layout to Image model:
+```
+@TBD add here  
+```
+
+## Inference
+### Inference SG to Layout
+To produce layout outputs and IOU results, run:
+```
+python -m scripts.generation_dataframe --checkpoint <trained_model_folder>
+```
+A new folder with the results will be created in: `<trained_model_folder>`
+
+### Inference Layout to Image (LostGANs)
+Please use [LostGANs implementation](https://github.com/WillSuen/LostGANs)
+
+### Inference Layout to Image (AttSPADE)
+@TBD
 
 
-## Notes
-
-- **Please note that the main part of the code has been released, though we are still testing it to fix possible glitches. Thank you.**
-
-- This implementation is built on top of https://github.com/google/sg2im.
+## Acknowledgment
+- This implementation is built on top of [1]: https://github.com/google/sg2im.
 
 
 
