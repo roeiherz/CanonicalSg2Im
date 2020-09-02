@@ -67,14 +67,19 @@ Follow the commands below to build the data.
 @TBD to complete here
 
 ## Training
-### Training a SG to Layout model:
+### Training a SG-to-Layout model:
 ```
-python -m scripts.train --dataset {packed_coco, packed_vg, .. @roei add here clevr name}  
+python -m scripts.train --dataset={packed_coco, packed_vg, .. @roei add here clevr name}  
 ```
 
-### Training AttSpade - Layout to Image model:
+### Training AttSpade - Layout-to-Image model:
 ```
-@TBD add here  
+python -m scripts.train --dataset={coco, vg, clevr} --batch_size=16 --loader_num_workers=0 --skip_graph_model=1 --skip_generation=0 --image_size=256,256 
+```
+
+### Training End-to-End - SG-to-Layout and Layout-to-Image:
+```
+python -m scripts.train --dataset={coco, vg, clevr} --batch_size=16 --loader_num_workers=0 --skip_graph_model=0 --skip_generation=0 --image_size=256,256 --learned_transitivity=1  --learned_antisymmetry=1  
 ```
 
 ## Inference
