@@ -5,8 +5,8 @@
 Main project [page](https://roeiherz.github.io/CanonicalSg2Im/).
 
 
-<!---[alt text](Figures/teaser.png)--->
-<img src="Figures/teaser.png" width="1000">
+<!---[alt text](figures/teaser.png)--->
+<img src="figures/teaser.png" width="1000">
 
 Generation of scenes with many objects. Our method achieves better performance on such scenes than previous methods. Left: A partial input scene graph.
 Middle: Generation using [1]. Right: Generation using our proposed method.
@@ -64,37 +64,97 @@ Follow the commands below to build the data.
 `./scripts/download_vg.sh`
 
 ### CLEVR
-@TBD to complete here
+Please download the CLEVR-Dialog Dataset from [here](https://github.com/satwikkottur/clevr-dialog).
+
+
 
 ## Training
 ### Training a SG-to-Layout model:
 ```
-python -m scripts.train --dataset={packed_coco, packed_vg, .. @roei add here clevr name}  
+python -m scripts.train --dataset={packed_coco, packed_vg, packed_clevr}  
 ```
 
 ### Training AttSpade - Layout-to-Image model:
+
+Optional arguments:
 ```
-python -m scripts.train --dataset={coco, vg, clevr} --batch_size=16 --loader_num_workers=0 --skip_graph_model=1 --skip_generation=0 --image_size=256,256 
+--output_dir=output_path_dir/%s (s is the run_name param) --run_name=folder_name --checkpoint_every=N (default=5000) --dataroot=datasets_path --debug (a flag for debug)
 ```
 
-### Training End-to-End - SG-to-Layout and Layout-to-Image:
+Train on COCO (with boxes):
 ```
-python -m scripts.train --dataset={coco, vg, clevr} --batch_size=16 --loader_num_workers=0 --skip_graph_model=0 --skip_generation=0 --image_size=256,256 --learned_transitivity=1  --learned_antisymmetry=1  
+python -m scripts.train --dataset=coco --batch_size=16 --loader_num_workers=0 --skip_graph_model=0 --skip_generation=0 --image_size=256,256 --min_objects=1 --max_objects=1000 --gpu_ids=0 --use_cuda
+```
+
+Train on VG:
+```
+python -m scripts.train --dataset=vg --batch_size=16 --loader_num_workers=0 --skip_graph_model=0 --skip_generation=0 --image_size=256,256 --min_objects=3 --max_objects=30 --gpu_ids=0 --use_cuda
+```
+
+Train on CLEVR:
+```
+python -m scripts.train --dataset=packed_clevr --batch_size=6 --loader_num_workers=0 --skip_graph_model=0 --skip_generation=0 --image_size=256,256 --use_img_disc=1 --gpu_ids=0 --use_cuda
 ```
 
 ## Inference
-### Inference SG to Layout
+### Inference SG-to-Layout
 To produce layout outputs and IOU results, run:
 ```
 python -m scripts.generation_dataframe --checkpoint <trained_model_folder>
 ```
 A new folder with the results will be created in: `<trained_model_folder>`
 
-### Inference Layout to Image (LostGANs)
+### Inference Layout-to-Image (LostGANs)
 Please use [LostGANs implementation](https://github.com/WillSuen/LostGANs)
 
-### Inference Layout to Image (AttSPADE)
-@TBD
+
+
+### Inference Layout-to-Image (AttSPADE)
+#### COCO/ Visual Genome
+1. ##### Generate images from a layout (dataframe):
+```
+python -m scripts.generation_dataframe --gpu_ids=<0/1/2> --checkpoint=<model_path> --output_dir=<output_path> --data_frame=<dataframe_path> --mode=<gt/pred>
+```
+
+```mode=gt``` defines use gt_boxes while ```mode=pred``` use predicted box by our WSGC model from the paper (see the dataframe for more details).
+
+
+##### Pre-trained Models:
+
+###### COCO
+
+dataframe: [link](https://www.dropbox.com/s/e1890f0i3vtihme/results_coco.csv?dl=0); 
+128x128 resolution: [link](https://www.dropbox.com/sh/61u5ntg4v0fucid/AACxHFjqXrlVEow4OMnEI3tya?dl=0);
+256x256 resolution: [link](https://www.dropbox.com/sh/c9vvc5hhwojbqdf/AADchhvJt_NW4gYaE6DoN-Eba?dl=0)
+
+
+###### Visual Genome
+
+dataframe: [link](https://www.dropbox.com/s/6ai9y91ll3sd6rk/results_vg.csv?dl=0); 
+128x128 resolution: [link](https://www.dropbox.com/sh/e0bbpeql1584svl/AAAX9kGiHRIwXV-uD782I99na?dl=0); 
+256x256 resolution: [link](https://www.dropbox.com/sh/19eky31f00ltqmz/AABYLquTPSqC6vC9J48oXTqNa?dl=0)
+
+
+
+
+2. ##### Generate images from a scene graph:
+```
+python -m scripts.generation_attspade --gpu_ids=<0/1/2> --checkpoint=<model/path> --output_dir=<output_path>
+```
+
+#### CLEVR
+
+This script generates CLEVR images on large scene graphs from ```scene_graphs.pkl```. It generates the CLEVR results for both WSGC + AttSPADE and Sg2Im + AttSPADE. For more information, please refer to the paper.
+
+```
+python -m scripts.generate_clevr --gpu_ids=<0/1/2> --layout_not_learned_checkpoint=<model_path> --layout_learned_checkpoint=<model_path> --output_dir=<output_path>
+```
+
+##### Pre-trained Models:
+
+Baseline (Sg2Im): [link](https://www.dropbox.com/sh/ss48bynmg2p2vue/AAAXjAxc1RHEz2qj-GZh_3iXa?dl=0);
+WSGC: [link](https://www.dropbox.com/sh/tt6ajappz9iaeya/AABs7aUq-nvSVKeztRsEg8YLa?dl=0)
+
 
 
 ## Acknowledgment
