@@ -100,14 +100,19 @@ python -m scripts.train --dataset=packed_clevr --batch_size=6 --loader_num_worke
 ### Inference SG-to-Layout
 To produce layout outputs and IOU results, run:
 ```
-python -m scripts.generation_dataframe --checkpoint <trained_model_folder>
+python -m scripts.layout_generation --checkpoint=<trained_model_folder> --gpu_ids=<0/1/2>
 ```
 A new folder with the results will be created in: `<trained_model_folder>`
 
 ### Inference Layout-to-Image (LostGANs)
 Please use [LostGANs implementation](https://github.com/WillSuen/LostGANs)
 
-
+### Inference Layout-to-Image (from dataframe)
+To produce the image from a dataframe, run:
+```
+python -m scripts.generation_dataframe --checkpoint=<trained_model_folder>
+```
+A new folder with the results will be created in: `<trained_model_folder>`
 
 ### Inference Layout-to-Image (AttSPADE)
 #### COCO/ Visual Genome
