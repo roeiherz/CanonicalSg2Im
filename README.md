@@ -104,6 +104,12 @@ python -m scripts.layout_generation --checkpoint=<trained_model_folder> --gpu_id
 ```
 A new folder with the results will be created in: `<trained_model_folder>`
 
+##### Pre-trained Models:
+
+COCO: [link](https://www.dropbox.com/sh/61u5ntg4v0fucid/AACxHFjqXrlVEow4OMnEI3tya?dl=0);
+Visual Genome: [link](https://www.dropbox.com/s/6ai9y91ll3sd6rk/results_vg.csv?dl=0); 
+
+
 ### Inference Layout-to-Image (LostGANs)
 Please use [LostGANs implementation](https://github.com/WillSuen/LostGANs)
 
