@@ -106,8 +106,9 @@ A new folder with the results will be created in: `<trained_model_folder>`
 
 ##### Pre-trained Models:
 
-COCO: [link](https://www.dropbox.com/sh/61u5ntg4v0fucid/AACxHFjqXrlVEow4OMnEI3tya?dl=0);
-Visual Genome: [link](https://www.dropbox.com/s/6ai9y91ll3sd6rk/results_vg.csv?dl=0); 
+Packed COCO: [link](https://www.dropbox.com/sh/wii1doyvm98eftg/AADY1tuOBnZl1LYRCAYJKIhZa?dl=0).
+
+Packed Visual Genome: [link](https://www.dropbox.com/sh/28fi9l4dj9hbvia/AADSFV5sqkIfRLiBqIyEcycfa?dl=0). 
 
 
 ### Inference Layout-to-Image (LostGANs)
